@@ -1,1 +1,19 @@
+nama = "Nabila Zahra Kusrynanda"
+noBP = "2310433009"
+urutan_shift = "4"
+
+print("nama= "+nama+"")
+print("no BP= "+noBP+"")
+print("shift= "+urutan_shift+"")
+print("==============================")
+
+print('Program MenghitungVolumeDanLuasPermukaanBola')
+
+phi = 22/7 
+r=int(input("Masukkan Nilai Jari-Jari ="))
+volume = 4/3*(phi*r*r*r)
+luas = 4*phi*r*r
+
+print("Volume Bola adalah =", volume)
+print("Luas Bola adalah =", luas)
 
