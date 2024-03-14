@@ -1,3 +1,5 @@
+//Kode Program Soal no 1
+//Buatlah Program untuk menghitung volume dan luas permukaan dari bola yang jari jarinya diinput dari keyboard.
 nama = "Nabila Zahra Kusrynanda"
 noBP = "2310433009"
 urutan_shift = "4"
@@ -17,3 +19,27 @@ luas = 4*phi*r*r
 print("Volume Bola adalah =", volume)
 print("Luas Bola adalah =", luas)
 
+//Kode Program Soal no 2
+//Buatlah program menghitung rata-rata, ragam, dan simpangan baku menggunakan minimal 5 data(bebas), dan data di input dari keyboard.
+nama = "Nabila Zahra Kusrynanda"
+noBP = "2310433009"
+urutan_shift = "4"
+
+print("nama= "+nama+"")
+print("no BP= "+noBP+"")
+print("shift= "+urutan_shift+"")
+print("==============================")
+
+print ('Program MenghitungRataRata,Ragam,DanSimpanganBaku')
+
+X1=int(input("Masukkan Nilai X1="))
+X2=int(input("Masukkan Nilai X2="))
+X3=int(input("Masukkan Nilai X3="))
+X4=int(input("Masukkan Nilai X4="))
+X5=int(input("Masukkan Nilai X5="))
+Rata = (X1+X2+X3+X4+X5)/5
+Ragam = ((pow((X1-Rata),2))+(pow((X2-Rata),2))+(pow((X3-Rata),2))+(pow((X4-Rata),2))+(pow((X5-Rata),2)))/5
+S = (Ragam)**0.5
+print("Rata-rata =", Rata)
+print("Ragam =", Ragam)
+print("Simpangan Baku =", S)
