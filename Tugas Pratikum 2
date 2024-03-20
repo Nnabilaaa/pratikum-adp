@@ -1,0 +1,237 @@
+print ('Selamat Datang di Bandara Internasional Hang Nadim')
+print ()
+print ('Lengkapi data diri anda terlebih dahulu untuk pembelian Tiket')
+print ()
+Nama = input('Nama Penumpang :')
+Umur = int(input('Umur :'))
+JK = input('Jenis Kelamin :')
+
+print ()
+print ('Silakan Pilih kota tujuan')
+print ()
+print ('a. Pekanbaru')
+print ('b. Medan')
+print ('c. Jakarta')
+print ('d. Bali')
+print ()
+Kota = input('Tiket tujuan mana? (a/b/c/d)')
+
+if Kota == 'a':
+    T = 'Pekanbaru'
+    print()
+    print('Pilih Jenis Maskapai')
+    print()
+    print('1. Ekonomi (Rp645.000)')
+    print('2. Bisnis (Rp820.000)')
+    print('3. Firts Class (Rp1.020.000)')
+    print()
+    Maskapai = int(input('Jenis Maskapai berapa? (1/2/3) '))
+    print()
+    Tiket = int(input('Berapa Kursi?'))
+    if Maskapai == 1:
+        Harga = 645000
+        J = 'Ekonomi'
+    elif Maskapai == 2:
+        Harga = 820000
+        J = 'Bisnis'
+    elif Maskapai == 3:
+        Harga = 1020000
+        J = 'Firts Class'
+        
+elif Kota == 'b':
+    T = 'Medan'
+    print()
+    print('Pilih Jenis Maskapai')
+    print()
+    print('1. Ekonomi (Rp930.000)')
+    print('2. Bisnis (Rp1.120.000)')
+    print('3. Firts Class (Rp1.250.000)')
+    print()
+    Maskapai = int(input('Jenis Maskapai berapa? (1/2/3) '))
+    print()
+    Tiket = int(input('Berapa Kursi?'))
+    if Maskapai == 1:
+        Harga = 930000
+        J = 'Ekonomi'
+    elif Maskapai == 2:
+        Harga = 1120000
+        J = 'Bisnis'
+    elif Maskapai == 3:
+        Harga = 1250000
+        J = 'Firts Class'
+
+elif Kota == 'c':
+    T = 'Jakarta'
+    print()
+    print('Pilih Jenis Maskapai')
+    print()
+    print('1. Ekonomi (Rp989.000)')
+    print('2. Bisnis (Rp1.120.000)')
+    print('3. First Class (Rp1.500.000)')
+    print()
+    Maskapai = int(input('Jenis Maskapai berapa? (1/2/3) '))
+    print()
+    Tiket = int(input('Berapa Kursi?'))
+    if Maskapai == 1:
+        Harga = 989000
+        J = 'Ekonomi'
+    elif Maskapai == 2:
+        Harga = 1120000
+        J = 'Bisnis'
+    elif Maskapai == 3:
+        Harga = 1500000
+        J = 'First Class'
+        
+elif Kota == 'd':
+    T = 'Bali'
+    print()
+    print('Pilih Jenis Maskapai')
+    print()
+    print('1. Ekonomi (Rp1.251.000)')
+    print('2. Bisnis (Rp1.690.000)')
+    print('3. First Class (Rp2.020.000)')
+    print()
+    Maskapai = int(input('Jenis Maskapai berapa? (1/2/3): '))
+    print()
+    Tiket = int(input('Berapa Kursi?'))
+    if Maskapai == 1:
+        Harga = 1251000
+        J = 'Ekonomi'
+    elif Maskapai == 2:
+        Harga = 1690000
+        J = 'Bisnis'
+    elif Maskapai == 3:
+        Harga = 2020000
+        J = 'First Class'
+
+if Tiket < 4:
+    Total = Harga * Tiket 
+else:
+    Total = Harga * Tiket * (75/100)
+
+print()
+print('Bukti Pembelian (Receipt)')
+print()
+print('===============')
+print('Nama :', Nama)
+print('Umur :', Umur)
+print('Jenis Kelamin :', JK)
+print()
+print('======================')
+print()
+print('Kota Tujuan :', T) 
+print('Jenis Maskapai :',J)
+print('Jumlah Tiket :', Tiket)
+print(f'Total Harga :Rp{Total:10.2f}')
+print()
+print('==============================')
+print('Tunjukkan e-ticket dan identitas penumpang saat check in ^-^') 
+print('Terima kasih telah menggunakan jasa kami') 
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    cout << "Selamat Datang di Bandara Internasional Hang Nadim" << endl << endl;
+    cout << "Lengkapi data diri anda" << endl << endl;
+    
+    string Nama, JK, T, J;
+    int Umur, Harga, Tiket, Total, Maskapai;
+    
+    cout << "Nama Penumpang: ";
+    getline(cin, Nama);
+    cout << "Umur: ";
+    cin >> Umur;
+    cout << "Jenis Kelamin: ";
+    cin >> JK;
+    
+    cout << endl;
+    cout << "Silakan Pilih kota tujuan" << endl << endl;
+    cout << "1. Jakarta" << endl;
+    cout << "2. Magelang" << endl;
+    cout << "3. Surabaya" << endl;
+    cout << "4. Bandung" << endl;
+    
+    char Kota;
+    cout << "Tiket tujuan mana? (1/2/3/4): ";
+    cin >> Kota;
+    
+    if (Kota == '1') {
+        T = "Jakarta";
+        cout << "Pilih Jenis Maskapai" << endl << endl;
+        cout << "1. Ekonomi (Rp645.000)" << endl;
+        cout << "2. Bisnis (Rp820.000)" << endl;
+        cout << "3. Firts Class (Rp1.020.000)" << endl << endl;
+        cout << "Jenis Maskapai berapa? (1/2/3): ";
+        cin >> Maskapai;
+    }
+    else if (Kota == '2') {
+        T = "Magelang";
+        cout << "Pilih Jenis Maskapai" << endl << endl;
+        cout << "1. Ekonomi (Rp810.000)" << endl;
+        cout << "2. Bisnis (Rp950.000)" << endl;
+        cout << "3. Firts Class (Rp1.112.000)" << endl << endl;
+        cout << "Jenis Maskapai berapa? (1/2/3): ";
+        cin >> Maskapai;
+    }
+    else if (Kota == '3') {
+        T = "Surabaya";
+        cout << "Pilih Jenis Maskapai" << endl << endl;
+        cout << "1. Ekonomi (Rp758.000)" << endl;
+        cout << "2. Bisnis (Rp950.000)" << endl;
+        cout << "3. Firts Class (Rp1.210.000)" << endl << endl;
+        cout << "Jenis Maskapai berapa? (1/2/3): ";
+        cin >> Maskapai;
+    }
+    else if (Kota == '4') {
+        T = "Bandung";
+        cout << "Pilih Jenis Maskapai" << endl << endl;
+        cout << "1. Ekonomi (Rp729.000)" << endl;
+        cout << "2. Bisnis (Rp910.000)" << endl;
+        cout << "3. Firts Class (Rp1.025.000)" << endl << endl;
+        cout << "Jenis Maskapai berapa? (1/2/3): ";
+        cin >> Maskapai;
+    }
+    
+    cout << endl;
+    cout << "Berapa Kursi? ";
+    cin >> Tiket;
+    
+    if (Maskapai == 1) {
+        Harga = (Kota == '1') ? 645000 : ((Kota == '2') ? 810000 : ((Kota == '3') ? 758000 : 729000));
+        J = "Ekonomi";
+    } else if (Maskapai == 2) {
+        Harga = (Kota == '1') ? 820000 : ((Kota == '2') ? 950000 : ((Kota == '3') ? 950000 : 910000));
+        J = "Bisnis";
+    } else if (Maskapai == 3) {
+        Harga = (Kota == '1') ? 1020000 : ((Kota == '2') ? 1112000 : ((Kota == '3') ? 1210000 : 1025000));
+        J = "Firts Class";
+    }
+    
+    if (Tiket < 4 ) {
+        Total = Harga * Tiket;
+    } else {
+        Total = Harga * Tiket * 0.75;
+    }
+    
+    cout << endl << endl;
+	cout << "================" << endl;
+    cout << "Bukti Pembelian (Receipt) " << endl;
+    cout << "================" << endl;
+    cout << "Nama: " << Nama << endl;
+    cout << "Umur: " << Umur << endl;
+    cout << "Jenis Kelamin: " << JK << endl << endl;
+    cout << "======================" << endl << endl;
+    cout << "Kota Tujuan: " << T << endl;
+    cout << "Jenis Maskapai: " << J << endl;
+    cout << "Jumlah Tiket: " << Tiket << endl;
+    cout << "Total Harga: Rp" << Total << endl << endl;
+    cout << "==============================" << endl << endl;
+    cout << "Tunjukkan e-tiket dan identitas penumpang saat check-in" << endl << endl;
+    cout << "Terima Kasih telah menggunakan jasa kami ^_^" << endl << endl;
+    
+    return 0;
+}
+
