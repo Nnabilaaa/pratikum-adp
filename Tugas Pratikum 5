@@ -1,0 +1,34 @@
+print("Nabila Zahra Kusrynanda")
+print("Shift 4")
+print()
+
+while True:
+    arr_str = input("Masukkan Array A (elemen bilangan bulat dari 0 sampai 9): ")
+    arr = arr_str.split()
+    if all(x.isdigit() and 0 <= int(x) <= 9 for x in arr):
+        A = [int(x) for x in arr]
+        break
+    else:
+        print("Input tidak valid. Setiap elemen harus bilangan bulat dari 0 sampai 9. Silakan masukkan ulang.")
+
+while True:
+    arr_str = input("Masukkan Array B (elemen bilangan bulat dari 0 sampai 9): ")
+    arr = arr_str.split()
+    if all(x.isdigit() and 0 <= int(x) <= 9 for x in arr):
+        B = [int(x) for x in arr]
+        break
+    else:
+        print("Input tidak valid. Setiap elemen harus bilangan bulat dari 0 sampai 9. Silakan masukkan ulang.")
+
+set_A = set(A)
+set_B = set(B)
+
+# Mencari elemen-elemen yang hanya ada di A atau B atau keduanya
+array_hanya_di_A = set_A - set_B
+array_hanya_di_B = set_B - set_A
+array_di_A_dan_B = set_A & set_B
+
+# Menampilkan hasil
+print("Elemen yang hanya ada di Array A (tidak berada di Array B):", array_hanya_di_A)
+print("Elemen yang hanya ada di Array B (tidak berada di Array A):", array_hanya_di_B)
+print("Elemen yang ada di Array A dan Array B:", array_di_A_dan_B)
