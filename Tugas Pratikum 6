@@ -1,0 +1,38 @@
+n = int(input("Masukkan Jumlah barang:"))
+
+daftar_barang = []
+for i in range(n):
+    nama = input("Masukkan nama barang ke-{}:".format(i+1))
+    harga = float(input("Masukkan harga barang {} :Rp.".format(nama)))
+    stok = int(input("Masukkan stok barang {}:".format(nama)))
+    daftar_barang.append([nama, harga, stok])
+
+print()
+print("Tabel Harga dan Stok Barang")
+print("============================")
+print("{:<11} {:<10} {:<10}".format("Nama Barang", "Harga", "Stok"))
+for barang in daftar_barang:
+    print("{:<11} {:<10} {:<10}".format(barang[0], barang[1], barang[2]))
+
+keuntungan_terbesar = -1
+keuntungan_terkecil = float('inf')
+nama_barang_terbesar = ""
+nama_barang_terkecil = ""
+total_keuntungan = 0
+
+for barang in daftar_barang:
+    keuntungan = barang[1] * barang[2]
+    total_keuntungan += keuntungan
+
+    if keuntungan > keuntungan_terbesar:
+        keuntungan_terbesar = keuntungan
+        nama_barang_terbesar = barang[0]
+
+    if keuntungan < keuntungan_terkecil:
+        keuntungan_terkecil = keuntungan
+        nama_barang_terkecil = barang[0]
+
+print("-------------------------------------")
+print("Nama barang dengan keuntungan terbesar: ", nama_barang_terbesar)
+print("Nama barang dengan keuntungan terkecil: ", nama_barang_terkecil)
+print("Total keuntungan yang diperoleh: Rp.", total_keuntungan)
