@@ -1,0 +1,35 @@
+def hitung_kecepatan_akhir(kecepatan_awal, percepatan, detik):
+    kecepatan_akhir = kecepatan_awal + (percepatan * detik)
+    return kecepatan_akhir
+
+def hitung_jarak_yang_ditempuh(kecepatan_awal, percepatan, detik):
+    jarak = kecepatan_awal * detik + 0.5 * percepatan * (detik ** 2)
+    return jarak
+
+def memunculkan_tabel(data_kecepatan):
+    print()
+    print("     Menghitung kecepatan akhir dan jarak yang ditempuh benda dalam GLBB  ")
+    print("================================================================================")
+    print("|  n    | Kecepatan Awal  | Percepatan  | Waktu   | Kecepatan Akhir  |  Jarak  |")
+    print("================================================================================")
+    for i in range(len(data_kecepatan)):
+        kecepatan_awal, percepatan, detik = data_kecepatan[i]
+        kecepatan_akhir = hitung_kecepatan_akhir(kecepatan_awal, percepatan, detik)
+        jarak = hitung_jarak_yang_ditempuh(kecepatan_awal, percepatan, detik)
+        print(f"| {i+1:<5} | {kecepatan_awal:<15} | {percepatan:<12} | {detik:<7} | {kecepatan_akhir:<15} | {jarak:<7} |")
+    print("================================================================================")
+
+def main():
+    n = int(input("Masukkan jumlah percobaan: "))
+    data_kecepatan = []
+
+    for i in range(n):
+        print(f"Data untuk percobaan ke-{i+1}")
+        kecepatan_awal = float(input("Masukkan kecepatan awal : "))
+        percepatan = float(input("Masukkan percepatan : "))
+        detik = float(input("Masukkan waktu : "))
+        data_kecepatan.append((kecepatan_awal, percepatan, detik))
+
+    memunculkan_tabel(data_kecepatan)
+
+main()
