@@ -1,0 +1,77 @@
+data1 = "keuangan.txt"
+
+def load_financial_data():
+    file = open(data1, "a")
+    file.close()
+3
+def data_keuangan():
+    financial_data = {}
+    with open(data1, "r") as file:
+        baris = file.readlines()
+        for line in baris:
+            bagian = line.strip().split(",")
+            if len(bagian) == 4:
+                date, description, amount, transaction_type = bagian 
+                financial_data[date] = {
+                    "description": description, 
+                    "amount": float(amount), 
+                    "type": transaction_type
+                }
+    return financial_data
+
+def simpan_financial_data(financial_data):
+    with open(data1, "w") as file:
+        for date, data in financial_data.items():
+            file.write(f"{date},{data['description']},{data['amount']},{data['type']}\n")
+
+def tambah_transaksi(financial_data):
+    date = input("Masukkan tanggal (YYYY-MM-DD): ")
+    description = input("Masukkan keterangan transaksi: ")
+    amount = float(input("Masukkan jumlah uang: "))
+    transaction_type = input("Apakah ini pemasukan atau pengeluaran? (pemasukan/pengeluaran): ").lower()
+    financial_data[date] = {"description": description, "amount": amount, "type": transaction_type}
+    print("Data transaksi berhasil ditambahkan!")
+
+def hapus_transaksi(financial_data):
+    date_delete = input("Masukkan tanggal transaksi yang ingin dihapus (YYYY-MM-DD): ")
+    if date_delete in financial_data:
+        del financial_data[date_delete]
+        print("Data transaksi berhasil dihapus!")
+    else:
+       print("Tanggal transaksi tidak ditemukan.")
+
+def munculkan_financial_data(financial_data):
+    print()
+    print("Data Keuangan:")
+    print("{:<15} {:<20} {:<10} {:<10}".format("Tanggal", "Keterangan", "Jumlah", "Tipe"))
+    for date, data in financial_data.items():
+        print("{:<15} {:<20} {:<10} {:<10}".format(date, data['description'], data['amount'], data['type']))
+
+def main():
+    financial_data = data_keuangan()
+
+    while True:
+        print
+        print("Menu:")
+        print("1. Tambah Transaksi")
+        print("2. Hapus Transaksi")
+        print("3. Tampilkan Data Keuangan")
+        print("4. Keluar")
+
+        choice = input("Pilih menu (1/2/3/4): ")
+
+        if choice == "1":
+            tambah_transaksi(financial_data)
+            simpan_financial_data(financial_data)
+        elif choice == "2":
+            hapus_transaksi(financial_data)
+            simpan_financial_data(financial_data)
+        elif choice == "3":
+            munculkan_financial_data(financial_data)
+        elif choice == "4":
+            print("Program telah selesai!")
+            break
+        else:
+            print("Pilihan tidak valid. Silakan coba kembali.")
+
+    main()
