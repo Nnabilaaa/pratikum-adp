@@ -1,0 +1,39 @@
+import os
+from termcolor import cprint, colored
+os.system ('cls')
+
+print("",end =" " )
+cprint ("            *         * ",'yellow',end = " " )
+print(" ")
+
+print("",end =" " )
+cprint ("            |         | ",'cyan',end = " " )
+print(" ")
+
+print(" " * 11 ,end = " " )
+cprint(" " * 15, 'magenta', 'on_magenta',end = " ") 
+print(" ")
+
+print(" " * 8 ,end = " " )
+cprint(" " * 20 ,'light_magenta', 'on_light_magenta',end = " ")
+print(" ")
+
+print(" " * 8 ,end = " " )
+cprint(" " * 20 ,'magenta', 'on_magenta',end = " ")
+print(" ")
+
+print(" " * 8 ,end = " " )
+cprint(" " * 20 ,'light_magenta', 'on_light_magenta',end = " ")
+print(" ")
+
+print(" " * 6 ,end = " " )
+cprint(" " * 25, 'light_magenta', 'on_light_magenta', end =" ")
+print(" ")
+
+print(" " * 6 ,end = " " )
+cprint(" " * 25, 'magenta', 'on_magenta',end =" ")
+print(" ")
+
+print(" " * 6 ,end = " " )
+cprint(" " * 25, 'light_magenta', 'on_light_magenta',end =" ")
+print(" ")
