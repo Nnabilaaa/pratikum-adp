@@ -1,0 +1,133 @@
+import os
+import time
+from termcolor import colored, cprint
+
+os.system('cls')
+
+def cetak_papan_main(papan):
+    for baris in papan:
+        print(" | ".join(baris))
+        print("-" * 11)  # Perbaikan panjang baris pembatas
+
+def menang(papan, pemain):
+    for baris in range(3):
+        if all(papan[baris][kolom] == pemain for kolom in range(3)):
+            return True
+    for kolom in range(3):
+       if all(papan[baris][kolom] == pemain for baris in range(3)):
+            return True
+    if all(papan[i][i] == pemain for i in range(3)):
+        return True
+    if all(papan[i][2 - i] == pemain for i in range(3)):
+        return True
+    return False
+
+def seri(papan):
+    for baris in papan:
+        for cell in baris:
+            if cell == " ":
+                return False 
+    return True 
+
+def warna_papan(papan):
+    colored_board = []
+    for baris in papan:
+        colored_baris = []
+        for cell in baris:
+            if cell == "X":
+                colored_baris.append(colored(cell, 'red'))
+            elif cell == "O":
+                colored_baris.append(colored(cell, 'blue'))
+            else:
+                colored_baris.append(cell)
+        colored_board.append(colored_baris)
+    return colored_board
+
+def tampilan_papan():
+    contoh_papan = [
+        ["X", "O", "X"],
+        ["O", "X", "O"],
+        ["X", "O", "X"]
+    ]
+    print("Contoh Papan: ")
+    cetak_papan_main(warna_papan(contoh_papan))
+    print(" ")
+
+def dapatkan_input_angka(prompt):
+    angka = -1
+    while angka not in [0, 1, 2]:
+        input_user = input(prompt)
+        if input_user.isdigit():
+            angka = int(input_user)
+        if angka not in [0, 1, 2]:
+            print("Inputan gagal! Silakan masukkan angka antara 0 dan 2.")
+    return angka
+def simpan_skor(skor):
+    with open("skor.txt", "w") as file:
+        for pemain, nilai in skor.items():
+            file.write(f"{pemain}:{nilai}\n")
+
+def muat_skor():
+    skor = {}
+    with open("skor.txt", "r") as file:
+        lines = file.readlines()
+        for baris in lines:
+            pemain, nilai = baris.strip().split(":")
+            skor[pemain] = int(nilai)
+    return skor
+
+def tic_tac_toe():
+    tampilan_papan()
+    time.sleep(4)
+    os.system('cls')
+    while True:
+        papan = [[" " for _ in range(3)] for _ in range(3)]
+        pemain1 = input("Masukkan nama pemain 1: ")
+        pemain2 = input("Masukkan nama pemain 2: ")
+        pemain = [("X", pemain1), ("O", pemain2)]
+        pemain_sekarang = 0
+
+        skor = muat_skor()
+
+        if pemain1 not in skor:
+            skor[pemain1] = 0
+        if pemain2 not in skor:
+            skor[pemain2] = 0
+
+        while True:
+            os.system('cls')
+            cetak_papan_main(warna_papan(papan))
+            print(f"Pemain {colored(pemain[pemain_sekarang][1], 'red' if pemain_sekarang == 0 else 'blue')}'s giliran.")
+        
+            baris = dapatkan_input_angka("Pilih baris (0, 1, 2): ")
+            kolom = dapatkan_input_angka("Pilih kolom (0, 1, 2): ")
+
+            if papan[baris][kolom] != " ":
+                print("Tempat ini sudah diambil. Silakan coba lagi!")
+                continue
+
+            papan[baris][kolom] = pemain[pemain_sekarang][0]
+
+            os.system('cls')
+
+            if menang(papan, pemain[pemain_sekarang][0]): 
+                cetak_papan_main(warna_papan(papan))
+                cprint(f"Pemain {pemain[pemain_sekarang][1]} Menang!", 'white', 'on_green')
+                skor[pemain[pemain_sekarang][1]] += 1
+                break
+
+            if seri(papan):
+                cetak_papan_main(warna_papan(papan))
+                print("Seri!")
+                break
+
+            pemain_sekarang = 1 - pemain_sekarang
+
+        simpan_skor(skor)
+
+        lanjut = input("Apakah anda ingin melanjutkan permainan? (ya/tidak) : ")
+        if lanjut.lower() != "ya":
+            print("Terimakasih telah bermain game ini. Semoga harimu menyenangkan <3 ")
+            break
+
+tic_tac_toe()
